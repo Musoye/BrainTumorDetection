@@ -42,7 +42,6 @@ def train_and_evaluate(model, optimizer, scheduler, train_loader, val_loader, nu
 
         scheduler.step()
 
-        # Log losses and accuracy at specified intervals
         if epoch % log_epoch == 0 or epoch == num_epochs - 1:
             all_losses.append(avg_loss)
             accuracy_hist_train.append(accuracy_train)

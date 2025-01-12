@@ -29,8 +29,3 @@ def load_model(filepath, model, optimizer=None, scheduler=None):
     epoch = checkpoint.get('epoch', 0)
     print(f"Resumed training from epoch {epoch}")
     return epoch
-
-# save_model(model, optimizer, scheduler, epoch=10, filepath="model_checkpoint.pth")
-
-# Load the model
-# epoch = load_model(filepath="model_checkpoint.pth", model=model, optimizer=optimizer, scheduler=scheduler)
