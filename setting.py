@@ -45,7 +45,7 @@ def train_and_evaluate(model, optimizer, scheduler, train_loader, val_loader, nu
         if epoch % log_epoch == 0 or epoch == num_epochs - 1:
             all_losses.append(avg_loss)
             accuracy_hist_train.append(accuracy_train)
-            print(f"Epoch {epoch + 1}/{num_epochs}, "
+            print(f"Epoch {epoch}/{num_epochs}, "
                   f"Train Loss: {avg_loss:.4f}, Train Accuracy: {accuracy_train:.4f}, "
                   f"LR: {optimizer.param_groups[0]['lr']:.6f}")
 
@@ -64,7 +64,7 @@ def train_and_evaluate(model, optimizer, scheduler, train_loader, val_loader, nu
         accuracy_val = correct_val / len(val_loader.dataset)
         accuracy_hist_val.append(accuracy_val)
 
-        print(f"Epoch {epoch + 1}/{num_epochs}, Validation Accuracy: {accuracy_val:.4f}")
+        print(f"\nEpoch {epoch + 1}/{num_epochs}, Validation Accuracy: {accuracy_val:.4f}\n")
 
     # Plot the loss curve
     plt.figure(figsize=(10, 6))
