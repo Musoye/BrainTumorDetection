@@ -13,7 +13,7 @@ def save_model(model, optimizer, scheduler, epoch, filepath):
 
 def load_model(filepath, model, optimizer=None, scheduler=None):
 
-    checkpoint = torch.load(filepath)
+    checkpoint = torch.load(filepath, weights_only=True)
     
     model.load_state_dict(checkpoint['model_state_dict'])
     print("Model state loaded successfully.")

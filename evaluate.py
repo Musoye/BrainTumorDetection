@@ -2,13 +2,13 @@ import torch
 from torchvision import transforms
 from PIL import Image
 
-def evaluate_single_image(model, image_filename,class_labels=None):
+def evaluate_single_image(model, image_filename, class_labels=['no', 'yes']):
     model.eval()
 
     preprocess = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
-        transforms.Normalize()])
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
     try:
         image = Image.open(image_filename).convert('RGB')
         input_tensor = preprocess(image).unsqueeze(0)
@@ -19,10 +19,8 @@ def evaluate_single_image(model, image_filename,class_labels=None):
 
     with torch.no_grad():
         output = model(input_tensor)
-        probabilities = torch.nn.functional.softmax(output[0], dim=0)
-        predicted_class_idx = probabilities.argmax().item()
+        probabilities = torch.nn.functional.softmax(output[0], dim=0).tolist()
+    
+    result = {f"{class_labels[i]}": f"{probabilities[i] * 100:.2f}%" for i in range(len(probabilities))}
 
-
-    if class_labels:
-        return class_labels[predicted_class_idx]
-    return predicted_class_idx
+    return result

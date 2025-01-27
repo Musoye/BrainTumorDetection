@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRI Brain Tumor Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 16px;
+        }
+        input[type="file"] {
+            margin: 16px 0;
+            padding: 8px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="result-page" class="container" >
+    <h1>Evaluation Results</h1>
+    <p>Your uploaded MRI scan analysis:</p>
+    <div id="result-image">
+        <img id="scan-preview" src="{{ path }}" alt="Uploaded MRI Scan" style="width: 100%; max-height: 200px; border-radius: 8px; margin-bottom: 16px;" />
+    </div>
+    <div class="result-container">
+        <p><strong>Tumor Detection:</strong></p>
+        <p><span id="yes-percentage" style="color: #4CAF50; font-weight: bold; font-size: 18px;">{{ result.yes }}</span> Yes</p>
+        <p><span id="no-percentage" style="color: #ff5722; font-weight: bold; font-size: 18px;">{{ result.no }}</span> No</p>
+    </div>
+    <button onclick="goBack()">Upload Another Scan</button>
+</div>
+
+<script>
+    function goBack() {
+        location.href = '/';
+    }
+</script>
+
+</body>
+</html>
