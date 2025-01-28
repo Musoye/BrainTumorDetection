@@ -2,6 +2,8 @@
 
 This project is focused on training a machine learning model to detect brain tumors from medical images.
 
+Follow me on Twitter [Musoye](https://x.com/musoye1)
+
 ## Perequisites
 
 - Python 3.7 or higher
@@ -11,7 +13,7 @@ This project is focused on training a machine learning model to detect brain tum
 
 ## Training
 
-This is Notebook that's used to train this model [here](https://raw.githubusercontent.com/musoye/BrainTumorDetection/brain_tumor_tr.ipynb)
+This is Notebook that's used to train this model [here](https://github.com/Musoye/BrainTumorDetection/blob/main/brain_tumor_tr.ipynb)
 
 ## Installation
 
@@ -32,7 +34,7 @@ This is Notebook that's used to train this model [here](https://raw.githubuserco
     pip install -r requirements.txt
     ```
 
-4. Download the model [here]() and place it at the root directory.
+4. Download the model [here](https://drive.google.com/file/d/1e0B0UEv8DfSG735_M6dOKlIbAUCLsf_k/view?usp=sharing) and place it at the root directory.
 
 5. Run this web app. and test it ```sh python3 app.py```
 
